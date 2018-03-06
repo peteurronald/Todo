@@ -6,7 +6,8 @@ class Timebox extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            elapsed: 0
+            elapsed: 0,
+            remaining: this.props.end - this.props.start
         };
         let seconds = 0;
         let minutes = 0;
@@ -57,11 +58,23 @@ class Timebox extends React.Component {
         // This function is called every 1000 ms. It updates the 
         // elapsed counter. Calling setState causes the component to be re-rendered
 
-        let elapsed = new Date() - this.props.start;
-        this.calcTimeParts(elapsed);
-        this.setState({elapsed});
+        // let elapsed = new Date() - this.props.start;
+        // this.calcTimeParts(elapsed);
+        // this.setState({elapsed});
+
+        let remaining = this.state.remaining
+        this.calcTimeParts(remaining);
+        this.setState({remaining: remaining - 1000});
+
     }
     getElapsedFormatted = () => {
+        let op =  this.days > 0? `${this.days} days `:``;
+            op +=   this.hours > 0 ? `${this.hours} hours `:``;
+            op +=   this.minutes > 0 ? `${this.minutes} minutes `:``;
+            op +=   this.seconds > 0 ? `${this.seconds} secs`:``;
+        return op;
+    }
+    getRemainingFormatted = () => {
         let op =  this.days > 0? `${this.days} days `:``;
             op +=   this.hours > 0 ? `${this.hours} hours `:``;
             op +=   this.minutes > 0 ? `${this.minutes} minutes `:``;
@@ -80,7 +93,8 @@ class Timebox extends React.Component {
             <Box>
                 <BoxSpan>Started: {moment(this.props.time).format('MMMM Do YYYY, h:mm')}</BoxSpan>
                 {/* <BoxSpan>Time Elapsed: { `${this.hours} days ${this.hours} hours ${this.minutes} mins ${this.seconds} secs`}</BoxSpan> */}
-                <BoxSpan>Elapsed: {this.getElapsedFormatted()}</BoxSpan>
+                {/* <BoxSpan>Elapsed: {this.getElapsedFormatted()}</BoxSpan> */}
+                <BoxSpan>Remaining: {this.getRemainingFormatted()}</BoxSpan>
             </Box>
         </div>
       );

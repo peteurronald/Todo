@@ -1,14 +1,24 @@
 .todoListMain .header input {
     background-color: cornflowerblue;
+    color: #ffffff;
     padding: 10px;
-    font-size: 16px;
-    border: 2px solid #FFF;
-    width: 840px;
+    margin-top: 10px;
+    font-size: 12px;
+    border: 1px solid #FFF; 
+    width: 650px;
   }
+
+  .todoListMain .header label {
+    color: white;
+    margin-top: 10px;
+    font-size: 16px;
+   
+  }
+
   .todoListMain .header button {
     padding: 10px;
-    font-size: 16px;
-    margin: 10px;
+    font-size: 12px;
+    margin-top: 10px;
     margin-right: 0px;
     background-color: #0066FF;
     color: #FFF;
@@ -20,6 +30,7 @@
     border: 2px solid #003399;
     cursor: pointer;
   }
+
   .todoListMain .theList {
     list-style: none;
     padding-left: 0;
@@ -40,3 +51,26 @@
   .todoListMain .theList li span {
     font-size: 0.5rem; 
   }
+
+  .todoListMain .header .flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+
+  .todoListMain .header .flex-container .title{
+    flex-grow: 4.6;
+  }
+
+  .todoListMain .header .flex-container .task{
+    flex-grow: 4;
+    background-color: cornflowerblue;
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 12px;
+    border: 1px solid #FFF; 
+  }
+
+  

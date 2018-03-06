@@ -14,7 +14,7 @@ class TodoTasks extends Component {
       <li onClick={() => this.delete(task.key)} key={task.key}>
         <div>
           {task.task}
-          <Timebox start={task.key}/>
+          <Timebox start={task.key} end={task.target}/>
         </div>
         <img src="images/tick.png" height="30px" width="30px" />
       </li>
@@ -25,12 +25,12 @@ class TodoTasks extends Component {
     this.props.delete(key);
   }
   render() {
-    var todoEntries = this.props.entries;
-    var listItems = todoEntries.map(this.createTasks);
+    var tasks = this.props.entries;
+    var taskList = tasks.map(this.createTasks);
     return (
       <ul className="theList">
         <FlipMove duration={350} easing="ease-out">
-          {listItems}
+          {taskList}
         </FlipMove>
       </ul>
     );

@@ -39,7 +39,7 @@ class TodoList extends Component {
 
     // what is the new task
     let text = e.target[0].value;
-    if (text.trim().length === 0) text = loremIpsum({count: 3});
+    if (text.trim().length === 0) text = loremIpsum({ count: 3 });
 
     // create new task
     let key = { key: uuidV4() };
@@ -103,35 +103,43 @@ class TodoList extends Component {
         <div className="header">
           <form onSubmit={this.handleSubmitForm}>
 
-            <div className="flex-container">
-              <label className="title">Task</label>
-              <input className="task" placeholder="Enter a task ..." ref="theTask" />              
-            </div>
+            <div className="rcontainer" >
 
-            <div className="flex-container">
-              <label> Start Time</label>
-              <Datetime
-                dateFormat={'D MMM YYYY'}
-                value={this.state.startDate}
-                onChange={this.handleStartDateChange}
-              />
-              <label> End Time</label>
-              <Datetime
-                dateFormat={'D MMM YYYY'}
-                value={this.state.endDate}
-                onChange={this.handleEndDateChange}
-              />
-              <button type="submit">add</button>
-            </div>
+              <div className="rcontainer">
+                <label>Task</label>
+                <textarea placeholder="Enter a task ..." ref="theTask" />
+                <button type="submit">add</button>
+              </div>
+              
+              <div className="ccontainer">
 
-            <div>
-              <label htmlFor="priority" >Priority</label>
-              <select value={this.state.priority} onChange={this.handlePriorityChange} >
-                <option value="1">No priority</option>
-                <option value="4">Urgent and Important</option>
-                <option value="3">Urgent</option>
-                <option value="2">Important</option>
-              </select>
+                <div className="rcontainer">
+                  <label>Start</label>
+                  <Datetime
+                    dateFormat={'D MMM YYYY'}
+                    value={this.state.startDate}
+                    onChange={this.handleStartDateChange}
+                  />
+                </div>
+                <div className="rcontainer">
+                  <label>End</label>
+                  <Datetime
+                    dateFormat={'D MMM YYYY'}
+                    value={this.state.endDate}
+                    onChange={this.handleEndDateChange}
+                  />
+                </div>
+                <div className="rcontainer">
+                  <label htmlFor="priority" >Priority</label>
+                  <select value={this.state.priority} onChange={this.handlePriorityChange} >
+                    <option value="1">No priority</option>
+                    <option value="4">Urgent and Important</option>
+                    <option value="3">Urgent</option>
+                    <option value="2">Important</option>
+                  </select>
+                </div>
+
+              </div>
             </div>
 
           </form>

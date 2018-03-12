@@ -1,17 +1,35 @@
-.todoListMain .header input {
+.todoListMain .header .rcontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.todoListMain .header .rcontainer__flex-end {
+  align-self: flex-end;
+}
+
+.todoListMain .header .ccontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.todoListMain .header textarea {
     background-color: cornflowerblue;
     color: #ffffff;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 12px;
+    padding: 12px;
+    margin: 10px auto;
+    font-size: 14px;
     border: 1px solid #FFF; 
-    width: 650px;
+    width: 400px;
+    height: 150px;
+
   }
 
   .todoListMain .header label {
     color: white;
-    margin-top: 10px;
-    font-size: 16px;
+    margin: 10px 10px;
+    font-size: 14px;
    
   }
 
@@ -19,11 +37,13 @@
     padding: 10px;
     font-size: 12px;
     margin-top: 10px;
+    margin-left: 10px;
     margin-right: 0px;
     background-color: #0066FF;
     color: #FFF;
     border: 1px solid #0066FF;
     border-radius: 5px;
+    height: 50px;
   }
   .todoListMain .header button:hover {
     background-color: #003399;
@@ -59,18 +79,5 @@
   }
 
 
-  .todoListMain .header .flex-container .title{
-    flex-grow: 4.6;
-  }
-
-  .todoListMain .header .flex-container .task{
-    flex-grow: 4;
-    background-color: cornflowerblue;
-    color: #ffffff;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 12px;
-    border: 1px solid #FFF; 
-  }
 
   
